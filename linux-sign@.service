@@ -1,0 +1,7 @@
+[Unit]
+Description=Signing %i kernel
+After=network.target
+
+[Service]
+Type=oneshot
+ExecStart=/usr/bin/linux-sign %i /boot/EFI/%i/Bootx64.efi

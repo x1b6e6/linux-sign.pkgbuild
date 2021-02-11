@@ -1,0 +1,5 @@
+[Path]
+PathModified=/boot/initramfs-%i.img
+
+[Install]
+WantedBy=multi-user.target
