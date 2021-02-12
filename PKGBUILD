@@ -38,7 +38,7 @@ package() {
 	cd "$srcdir"
 
 	install -Dm755 "$srcdir"/linux-sign.sh "$pkgdir"/usr/bin/linux-sign
-	#install -Dm644 "$srcdir"/ms.esl "$pkgdir"/etc/efikeys/ms.esl
+	install -Dm644 "$srcdir"/ms.esl "$pkgdir"/etc/efikeys/ms.esl
 	install -Dm644 "$srcdir"/linux-sign@.path "$pkgdir"/usr/lib/systemd/system/linux-sign@.path
 	install -Dm644 "$srcdir"/linux-sign@.service "$pkgdir"/usr/lib/systemd/system/linux-sign@.service
 }
