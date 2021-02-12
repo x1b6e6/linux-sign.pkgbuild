@@ -45,7 +45,7 @@ keys_gen_install() {
 	check "converting pub key to efi sign list" cert-to-efi-sig-list $TMP/pub.pem $TMP/efi.esl
 
 	# add to list Microsoft keys for supporting dualboot
-	cat $EFIKEYS/ms.esl $TMP/efi.esl > $TMP/db.esl
+	cat $EFIKEYS/third_party.esl $TMP/efi.esl > $TMP/db.esl
 
 	# signing keys for using secureboot
 	check "signing PK"  sign-efi-sig-list -k $TMP/key.pem -c $TMP/pub.pem PK  $TMP/efi.esl $TMP/PK.auth

@@ -25,11 +25,11 @@ sha1sums=('7f199916818d6fada481e1c77d3a06bbcb64d17c'
 
 prepare(){
 	# clean file
-	echo "" > $srcdir/ms.esl
+	echo "" > $srcdir/third_party.esl
 
 	# install additional certs
-	((INSTALL_MS_ROOT)) && cat $srcdir/msRoot.esl >> ms.esl
-	((INSTALL_MS_THIRDPARTY)) && cat $srcdir/msThirdParty.esl >> ms.esl
+	((INSTALL_MS_ROOT)) && cat $srcdir/msRoot.esl >> third_party.esl
+	((INSTALL_MS_THIRDPARTY)) && cat $srcdir/msThirdParty.esl >> third_party.esl
 }
 
 install=linux-sign.install
@@ -38,7 +38,7 @@ package() {
 	cd "$srcdir"
 
 	install -Dm755 "$srcdir"/linux-sign.sh "$pkgdir"/usr/bin/linux-sign
-	install -Dm644 "$srcdir"/ms.esl "$pkgdir"/etc/efikeys/ms.esl
+	install -Dm644 "$srcdir"/third_party.esl "$pkgdir"/etc/efikeys/third_party.esl
 	install -Dm644 "$srcdir"/linux-sign@.path "$pkgdir"/usr/lib/systemd/system/linux-sign@.path
 	install -Dm644 "$srcdir"/linux-sign@.service "$pkgdir"/usr/lib/systemd/system/linux-sign@.service
 }
