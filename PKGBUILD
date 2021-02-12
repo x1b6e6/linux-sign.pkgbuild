@@ -32,7 +32,7 @@ prepare(){
 	((INSTALL_MS_THIRDPARTY)) && cat $srcdir/msThirdParty.esl >> third_party.esl
 }
 
-install=linux-sign.install
+install=install.sh
 
 package() {
 	cd "$srcdir"
