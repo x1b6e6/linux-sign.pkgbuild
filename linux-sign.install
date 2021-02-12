@@ -38,8 +38,8 @@ keys_gen_install() {
 		ERR_MSG=$($* 2>&1)
 		(( $? )) && err $MSG
 	}
-	# generate keys    
-	check "in openssl" openssl req -newkey rsa:4096 -nodes -keyout $TMP/key.pem -new -x509 -sha256 -days 3650 -subj "/CN=my Platform Key/" -out $TMP/pub.pem
+	# generate keys
+	check "in openssl" openssl req -newkey rsa:4096 -nodes -keyout $TMP/key.pem -new -x509 -sha256 -days 3650 -subj /CN=myPlatformKey/ -out $TMP/pub.pem
 	
     # convert public key to efi sign list
 	check "converting pub key to efi sign list" cert-to-efi-sig-list $TMP/pub.pem $TMP/efi.esl
