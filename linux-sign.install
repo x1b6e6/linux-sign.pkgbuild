@@ -28,7 +28,7 @@ keys_gen_install() {
 	local ERR_MSG=
 	err() {
 		echo error $* >&2
-		echo $ERR_MSG
+		echo $ERR_MSG >&2
 		post_upgrade
 		exit 1
 	}
