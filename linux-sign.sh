@@ -17,9 +17,11 @@ INITRD=/boot/initramfs-${KERNEL_NAME}.img
 CMDLIN=/etc/cmdline-${KERNEL_NAME}
 
 TMP_EFI_APP=/tmp/linux-efi-${KERNEL_NAME}.img
+TMP_INITRD=/tmp/linux-efi-${KERNEL_NAME}.img
 
 cleanup() {
 	rm -f ${TMP_EFI_APP}
+	rm -f ${TMP_INITRD}
 }
 
 ERR_MSG=
@@ -32,11 +34,13 @@ err() {
 
 [[ -f $CMDLIN ]] || /usr/bin/cp /proc/cmdline $CMDLIN
 
+cat $INITRD /boot/intel-ucode.img /boot/amd-ucode.img > $TMP_INITRD
+
 ERR_MSG=$(/usr/bin/objcopy \
 	--add-section .osrel=/etc/os-release --change-section-vma .osrel=0x20000 \
 	--add-section .cmdline=${CMDLIN} --change-section-vma .cmdline=0x30000 \
 	--add-section .linux=${KERNEL} --change-section-vma .linux=0x40000 \
-	--add-section .initrd=${INITRD} --change-section-vma .initrd=0x3000000 \
+	--add-section .initrd=${TMP_INITRD} --change-section-vma .initrd=0x3000000 \
 	${EFI_STUB} ${TMP_EFI_APP} 2>&1)
 (($?)) && err while joining kernel initrd and efi stub
 
