@@ -34,7 +34,7 @@ err() {
 
 [[ -f $CMDLIN ]] || /usr/bin/cp /proc/cmdline $CMDLIN
 
-cat $INITRD /boot/intel-ucode.img /boot/amd-ucode.img > $TMP_INITRD
+cat /boot/intel-ucode.img /boot/amd-ucode.img $INITRD > $TMP_INITRD
 
 ERR_MSG=$(/usr/bin/objcopy \
 	--add-section .osrel=/etc/os-release --change-section-vma .osrel=0x20000 \

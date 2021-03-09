@@ -1,7 +1,7 @@
 # Maintainer: x1b6e6 <ftdabcde@gmail.com>
 
 pkgname=linux-sign
-pkgver=0.1.0
+pkgver=0.1.1
 pkgrel=1
 pkgdesc="sign linux kernel"
 arch=('any')
@@ -15,7 +15,7 @@ source=(
 	"msRoot.esl"
 	"msThirdParty.esl"
 )
-sha1sums=('03a3a546d044e3574f1266b4393138ef914107ce'
+sha1sums=('5188e19e13d38e2e88ee769ba9c80e6a6f14c267'
           'db7ef2c3bcb35979607abad0c6f415546b7da003'
           '22594e7c709142c790bf56925c203544e433c148')
 
