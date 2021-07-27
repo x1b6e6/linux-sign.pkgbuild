@@ -156,3 +156,5 @@ check "signing" ${SBSIGN} \
 	--cert ${EFI_CERT} \
 	--output ${EFI_APP} \
 	${TMP_EFI_APP}
+
+exit 0
