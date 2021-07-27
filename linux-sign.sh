@@ -144,14 +144,14 @@ fi
 
 cat "${INITRD[@]}" > $TMP_INITRD
 
-check "in objcopy" ${OBJCOPY} \
+check "objcopying" ${OBJCOPY} \
 	--add-section .osrel=/etc/os-release --change-section-vma .osrel=0x20000 \
 	--add-section .cmdline=${TMP_CMDLINE} --change-section-vma .cmdline=0x30000 \
 	--add-section .linux=${KERNEL} --change-section-vma .linux=0x40000 \
 	--add-section .initrd=${TMP_INITRD} --change-section-vma .initrd=0x3000000 \
 	${EFI_STUB} ${TMP_EFI_APP}
 
-check "while signing" ${SBSIGN} \
+check "signing" ${SBSIGN} \
 	--key ${EFI_KEY} \
 	--cert ${EFI_CERT} \
 	--output ${EFI_APP} \
