@@ -15,7 +15,7 @@ source=(
 	"msRoot.esl"
 	"msThirdParty.esl"
 )
-sha1sums=('5188e19e13d38e2e88ee769ba9c80e6a6f14c267'
+sha1sums=('6c83a5981200a84ba7f6cf0d8fb1d0fb2a46e212'
           'db7ef2c3bcb35979607abad0c6f415546b7da003'
           '22594e7c709142c790bf56925c203544e433c148')
 
